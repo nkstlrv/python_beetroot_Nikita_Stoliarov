@@ -14,36 +14,40 @@
 # the call make_operation(‘-’, 5, 5, -10, -20) should return 30
 # the call make_operation(‘*’, 7, 6) should return 42
 
-
-def make_operation(math_operator: str, *args: int or float):
-    if math_operator == "+":
-        return sum(args)
-
-    elif math_operator == "*":
-        x = 1
-        for m_item in list(args):
-            x = x * m_item
-        return x
-
-    elif math_operator == "/":
-        d = list(args)
-        for div_i, div_item in enumerate(d):
-            if div_i == len(d) - 1:
+# I tried to use same loop for all operations but unfortunately strange things happens with Division and Subtraction
+def make_operation(math_operator, *args: int or float):
+    for ind, num in enumerate(args):
+        if math_operator == "+":
+            return sum(args)
+        elif math_operator == "*":
+            x = 1
+            x = x * num
+        elif math_operator == "/":
+            try:
+                d = list(args)
+                for div_i, div_item in enumerate(d):
+                    if div_i == len(d) - 1:
+                        break
+                    d[0] = d[0] / d[div_i + 1]
+                return d[0]
+            except ZeroDivisionError:
+                print("You can't divide by zero")
                 break
-            d[0] = d[0] / d[div_i + 1]
-        return d[0]
 
-    elif math_operator == "-":
-        s = list(args)
-        for subs_i, subs_item in enumerate(s):
-            if subs_i == len(s) - 1:
-                break
-            s[0] = s[0] - s[subs_i + 1]
-        return s[0]
+        elif math_operator == "-":
+            s = list(args)
+            for subs_i, subs_item in enumerate(s):
+                if subs_i == len(s) - 1:
+                    break
+                s[0] = s[0] - s[subs_i + 1]
+            return s[0]
 
-    else:
-        print("\n Wrong format")
+        else:
+            print("\n Wrong format")
 
 
-print(make_operation('/', 10, 2, 5))
+print(make_operation('/', 16, 2, 4, 1))
+
+
+
 

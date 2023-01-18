@@ -10,9 +10,9 @@
 # to make sure that it works as intended.
 
 
-def make_country_dict(name: str, capital: str) -> object:
+def make_country_dict(name: str, capital: str):
     dct = {name: capital}
     print("\n", dct)
 
 
-make_country_dict(name = "Ukraine", capital = "Kyiv")
+make_country_dict(name="Ukraine", capital="Kyiv")
