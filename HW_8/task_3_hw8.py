@@ -16,11 +16,11 @@
 
 # I tried to use same loop for all operations but unfortunately strange things happens with Division and Subtraction
 def make_operation(math_operator, *args: int or float):
+    x = 1
     for ind, num in enumerate(args):
         if math_operator == "+":
             return sum(args)
         elif math_operator == "*":
-            x = 1
             x = x * num
         elif math_operator == "/":
             try:
@@ -33,7 +33,6 @@ def make_operation(math_operator, *args: int or float):
             except ZeroDivisionError:
                 print("You can't divide by zero")
                 break
-
         elif math_operator == "-":
             s = list(args)
             for subs_i, subs_item in enumerate(s):
@@ -41,12 +40,12 @@ def make_operation(math_operator, *args: int or float):
                     break
                 s[0] = s[0] - s[subs_i + 1]
             return s[0]
-
         else:
             print("\n Wrong format")
+    return x
 
 
-print(make_operation('/', 16, 2, 4, 1))
+print(make_operation('*', 16, 2, 4, 1))
 
 
 
