@@ -1,0 +1,12 @@
+Hello there!
+
+This is a simple .txt file
+
+It will be imported and used by some functions. 
+
+l 7
+l 8
+
+
+
+l 12
