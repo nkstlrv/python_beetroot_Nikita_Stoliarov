@@ -6,7 +6,6 @@ with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Niki
 
 
 # Search by Name
-# (I know that functions can be better, but for now, it is the only way I figured out how to do it)
 def search_name() -> str:
     n_lst = []
     while True:

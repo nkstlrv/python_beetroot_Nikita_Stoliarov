@@ -1,271 +1,271 @@
 import json
 
 
-with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
-          r"App\phonebook.json", "r") as pb:
-    phone_book = json.load(pb)
+def edit_contact():
+    with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
+              r"App\phonebook.json", "r") as pb1:
+        phone_book1 = json.load(pb1)
+    # Searchin contact by number
+    key_lst = []
+    val_lst = []
+    contact_dict = {}
+    i = 0
+    while True:
+        number = input("\n Please, enter contact's number: ")
 
-
-    def edit_contact():
-        # Searchin contact by number
-        key_lst = []
-        val_lst = []
-        contact_dict = {}
-        i = 0
-        while True:
-            number = input("\n Please, enter contact's number: ")
-
-            for contact in phone_book:
-                if number == contact["Number"]:
-                    contact_dict = contact
-                    break
-                else:
-                    continue
-            if contact_dict == {}:
-                print("\n There is NO contact with this number")
-                continue
+        for contact in phone_book1:
+            if number == contact["Number"]:
+                contact_dict = contact
+                break
             else:
-                for key, val in contact_dict.items():
-                    if len(val_lst) == len(contact_dict):
-                        break
-                    val_lst.append(val)
-                    key_lst.append(key)
-
-            print("\n Here is contact's info:\n")
-            while i < len(val_lst):
-                print("", f"{key_lst[i]} -- {val_lst[i]}")
-                i += 1
-            break
-
-        # Choosing which parameter to edit
-        while True:
-            try:
-                edit_info = int(input("\n Which info do you want to edit?"
-                                      "\n\n - NAME --> [1]"
-                                      "\n - SURNAME --> [2]"
-                                      "\n - TELEPHONE NUMBER --> [3]"
-                                      "\n - CITY --> [4]"
-                                      "\n - STATE --> [5]"
-                                      "\n - COUNTRY --> [6]"
-                                      "\n ENTER your answer: "))
-            except ValueError:
-                print("\n Input Error"
-                      "\n Use only given numbers to choose")
                 continue
-            except Exception as error:
-                print(f"\n Unexpected error --> {error}"
-                      "\n Try again")
-                continue
+        if contact_dict == {}:
+            print("\n There is NO contact with this number")
+            continue
+        else:
+            for key, val in contact_dict.items():
+                if len(val_lst) == len(contact_dict):
+                    break
+                val_lst.append(val)
+                key_lst.append(key)
 
-            # Changing contact's Name
-            if edit_info == 1:
+        print("\n Here is contact's info:\n")
+        while i < len(val_lst):
+            print("", f"{key_lst[i]} -- {val_lst[i]}")
+            i += 1
+        break
 
-                name = input("\n ENTER contacts new NAME: ").title()
+    # Choosing which parameter to edit
+    while True:
+        try:
+            edit_info = int(input("\n Which info do you want to edit?"
+                                  "\n\n - NAME --> [1]"
+                                  "\n - SURNAME --> [2]"
+                                  "\n - TELEPHONE NUMBER --> [3]"
+                                  "\n - CITY --> [4]"
+                                  "\n - STATE --> [5]"
+                                  "\n - COUNTRY --> [6]"
+                                  "\n ENTER your answer: "))
+        except ValueError:
+            print("\n Input Error"
+                  "\n Use only given numbers to choose")
+            continue
+        except Exception as error:
+            print(f"\n Unexpected error --> {error}"
+                  "\n Try again")
+            continue
 
-                while True:
+        # Changing contact's Name
+        if edit_info == 1:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            name = input("\n ENTER contacts new NAME: ").title()
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["Name"] = name
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
 
-            # Changing contact's Surname
-            if edit_info == 2:
+            contact_dict["Name"] = name
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
 
-                surname = input("\n ENTER contacts new SURNAME: ").title()
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
 
-                while True:
+        # Changing contact's Surname
+        if edit_info == 2:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            surname = input("\n ENTER contacts new SURNAME: ").title()
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["Surname"] = surname
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
 
-            # Changing contact's Phone number
-            if edit_info == 3:
+            contact_dict["Surname"] = surname
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
 
-                ph_num = input("\n ENTER contacts new PHONE NUMBER: ")
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
 
-                while True:
+        # Changing contact's Phone number
+        if edit_info == 3:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            ph_num = input("\n ENTER contacts new PHONE NUMBER: ")
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["Number"] = ph_num
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
 
-            # Changing contact's City
-            if edit_info == 4:
+            contact_dict["Number"] = ph_num
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
 
-                city = input("\n ENTER contacts new CITY: ").title()
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
 
-                while True:
+        # Changing contact's City
+        if edit_info == 4:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            city = input("\n ENTER contacts new CITY: ").title()
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["City"] = city
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
 
-            # Changing contact's State
-            if edit_info == 5:
+            contact_dict["City"] = city
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
 
-                state = input("\n ENTER contacts new STATE: ")
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
 
-                while True:
+        # Changing contact's State
+        if edit_info == 5:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            state = input("\n ENTER contacts new STATE: ")
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["State"] = state
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
 
-            # Changing contact's Country
-            if edit_info == 6:
+            contact_dict["State"] = state
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
 
-                country = input("\n ENTER contacts new COUNTRY: ")
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
 
-                while True:
+        # Changing contact's Country
+        if edit_info == 6:
 
-                    try:
-                        next_step = int(input("\n Do you want to save results?"
-                                              "\n Yes --> [1] No --> [2]: "))
-                    except ValueError:
-                        print("\n Input Error"
-                              "\n Use only given numbers to choose")
-                        continue
-                    except Exception as error:
-                        print(f"\n Unexpected error --> {error}"
-                              "\n Try again")
-                        continue
+            country = input("\n ENTER contacts new COUNTRY: ")
 
-                    if next_step == 1:
-                        break
-                    elif next_step == 2:
-                        quit()
+            while True:
 
-                contact_dict["Country"] = country
-                new_dict = contact_dict
-                phone_book.remove(contact)
-                phone_book.append(new_dict)
+                try:
+                    next_step = int(input("\n Do you want to save results?"
+                                          "\n Yes --> [1] No --> [2]: "))
+                except ValueError:
+                    print("\n Input Error"
+                          "\n Use only given numbers to choose")
+                    continue
+                except Exception as error:
+                    print(f"\n Unexpected error --> {error}"
+                          "\n Try again")
+                    continue
 
-                with open(
-                        r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                        r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
-                    json.dump(phone_book, npb)
+                if next_step == 1:
+                    break
+                elif next_step == 2:
                     quit()
+
+            contact_dict["Country"] = country
+            new_dict = contact_dict
+            phone_book1.remove(contact)
+            phone_book1.append(new_dict)
+
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(phone_book1, npb)
+                quit()
+
+
 
 # Functions test ------------------------------------------------------------------------------------------------
 if __name__ == "__main__":

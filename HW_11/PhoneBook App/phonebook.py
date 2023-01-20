@@ -1,4 +1,4 @@
-from pb_functions import search, create, edit
+from pb_functions import search, create, edit, delete
 
 # ---------------------------------------------------------------------------------------------------------------
 print("=" * 50)
@@ -119,3 +119,18 @@ while True:
         print("\n You have chosen EDIT mode")
         edit.edit_contact()
         quit()
+
+    # Delete contact mode ---------------------------------------------------------------------------------------
+    elif prog_mode == 4:
+        print("\n You have chosen DELETE mode")
+        delete.delete_contact()
+        quit()
+
+    # Quit the program
+    elif prog_mode == 1101:
+        print("\n Bye! Hope to see you soon")
+        quit()
+
+    else:
+        print("\n There no such option")
+        continue
