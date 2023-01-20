@@ -20,5 +20,5 @@ demo_phonebook = [
 
   }
 ]
-with open ("phonebook.json", "w") as pb:
+with open ("../phonebook.json", "w") as pb:
     json.dump(demo_phonebook, pb)

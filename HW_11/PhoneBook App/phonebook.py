@@ -1,5 +1,5 @@
 from pyfiglet import figlet_format
-from pb_functions import search, create_contact
+from pb_functions import search, create
 
 # ---------------------------------------------------------------------------------------------------------------
 
@@ -107,7 +107,12 @@ while True:
                 print("\n There no such option")
                 continue
 
-    # Edit mode -----------------------------------------------------------------------------------------
-
+    # Create contact mode -----------------------------------------------------------------------------------------
     elif prog_mode == 2:
-        print("\n So, you have chosen CREATE NEW CONTACT mode")
+        print("\n You have chosen CREATE NEW CONTACT mode")
+        create.create_contact()
+        quit()
+
+    # Edit contact mode -------------------------------------------------------------------------------------------
+    elif prog_mode == 3:
+        print("\n You have chosen EDIT mode")

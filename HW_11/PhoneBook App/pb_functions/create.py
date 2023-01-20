@@ -123,12 +123,16 @@ def create_contact():
 
         if next_step == 1:
 
-            with open("contacts_copy.json", "r") as pb:
+            with open(
+                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json",
+                    "r") as pb:
                 old_book = json.load(pb)
 
             old_book.append(new_cont)
 
-            with open("demo_dict.txt", "w") as wpb:
+            with open(r"C:\Users\stlrv\OneDrive\Python\GitHub "
+                      r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as wpb:
                 json.dump(old_book, wpb)
             quit()
         elif next_step == 2:
