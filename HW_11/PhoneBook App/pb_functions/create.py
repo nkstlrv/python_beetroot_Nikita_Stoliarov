@@ -61,8 +61,8 @@ def create_contact():
     while True:
         city = input("\n Finally let's add contact's ADDRESS"
                      "\n ENTER contact's CITY: ").title()
-        state = input("\n Now ENTER contact's STATE: ").title()
-        country = input("\n And finally ENTER contact's COUNTRY: ").title()
+        state = input("\n Now ENTER contact's STATE: ")
+        country = input("\n And finally ENTER contact's COUNTRY: ")
         print(f"\n Your contact's address is --> {city}, {country}, {state}")
 
         try:
@@ -126,14 +126,14 @@ def create_contact():
             with open(
                     r"C:\Users\stlrv\OneDrive\Python\GitHub "
                     r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json",
-                    "r") as pb:
-                old_book = json.load(pb)
+                    "r") as opb:
+                old_book = json.load(opb)
 
             old_book.append(new_cont)
 
             with open(r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                      r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as wpb:
-                json.dump(old_book, wpb)
+                      r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                json.dump(old_book, npb)
             quit()
         elif next_step == 2:
             quit()

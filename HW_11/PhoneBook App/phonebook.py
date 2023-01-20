@@ -1,11 +1,12 @@
-from pyfiglet import figlet_format
-from pb_functions import search, create
+from pb_functions import search, create, edit
 
 # ---------------------------------------------------------------------------------------------------------------
-
-print(figlet_format(" Phone Book"))
-print(""" Hello there!
- This is the Phonebook application [version -- 0.0]""")
+print("=" * 50)
+print(" " * 10, " P H O N E   B O O K")
+print("=" * 50)
+print(" " * 39, "v0.1  2023")
+print("""\n Hello there!
+ This is the Phonebook application""")
 print("\n What I can do?"
       "\n\n - Create and store contact's phone number and other necessary info;"
       "\n - Find a contact by Number, Name, Surname, Fullname, Address, etc.;"
@@ -55,7 +56,7 @@ while True:
               "\n Try again")
         continue
 
-    # Search mode----------------------------------------------------------------------------------------------------
+    # Search mode-------------------------------------------------------------------------------------------------
     if prog_mode == 1:
 
         while True:
@@ -113,6 +114,8 @@ while True:
         create.create_contact()
         quit()
 
-    # Edit contact mode -------------------------------------------------------------------------------------------
+    # Edit contact mode ------------------------------------------------------------------------------------------
     elif prog_mode == 3:
         print("\n You have chosen EDIT mode")
+        edit.edit_contact()
+        quit()

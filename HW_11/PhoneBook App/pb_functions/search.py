@@ -118,7 +118,7 @@ def search_state() -> str:
     state_lst = []
     while True:
 
-        state = input("\n Please enter contact's STATE: ").title()
+        state = input("\n Please enter contact's STATE: ")
 
         for contact in phone_book:
             if contact["State"] == state:
