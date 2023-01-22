@@ -1,7 +1,6 @@
 import json
 
-with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
-          r"App\phonebook.json", "r") as pb:
+with open(r"HW_11\PhoneBook App\phonebook.json", "r") as pb:
     phone_book = json.load(pb)
 
 

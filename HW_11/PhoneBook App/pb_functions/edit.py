@@ -2,8 +2,7 @@ import json
 
 
 def edit_contact():
-    with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
-              r"App\phonebook.json", "r") as pb1:
+    with open(r"HW_11\PhoneBook App\phonebook.json", "r") as pb1:
         phone_book1 = json.load(pb1)
     # Searchin contact by number
     key_lst = []
@@ -85,8 +84,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -120,8 +118,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -155,8 +152,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -190,8 +186,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -225,8 +220,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -260,8 +254,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub "
-                    r"RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 

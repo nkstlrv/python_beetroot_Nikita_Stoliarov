@@ -2,8 +2,7 @@ import json
 
 
 def delete_contact():
-    with open(r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
-              r"App\phonebook.json", "r") as pb:
+    with open(r"HW_11\PhoneBook App\phonebook.json", "r") as pb:
         phone_book = json.load(pb)
     # Searchin contact by number
     key_lst = []
@@ -50,8 +49,7 @@ def delete_contact():
         if next_step == 1:
             phone_book.remove(contact_dict)
             with open(
-                    r"C:\Users\stlrv\OneDrive\Python\GitHub RepClones\python_beetroot_Nikita_Stolyarov\HW_11\PhoneBook "
-                    r"App\phonebook.json", "w") as pb:
+                    r"HW_11\PhoneBook App\phonebook.json", "w") as pb:
                 json.dump(phone_book, pb)
                 quit()
         elif next_step == 2:
