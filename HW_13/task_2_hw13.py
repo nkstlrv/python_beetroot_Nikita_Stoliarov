@@ -20,6 +20,6 @@ def outer_func(name: str):
     return inner_func()
 
 # Uses inner text, so we've got access to the nested functions
-a = outer_func("Nikita")
+a = outer_func("Beetroot")
 print(a)
 
