@@ -15,37 +15,56 @@
 # the call make_operation(‘*’, 7, 6) should return 42
 
 # I tried to use same loop for all operations but unfortunately strange things happens with Division and Subtraction
-def make_operation(math_operator, *args: int or float):
-    x = 1
-    for ind, num in enumerate(args):
-        if math_operator == "+":
-            return sum(args)
-        elif math_operator == "*":
-            x = x * num
-        elif math_operator == "/":
-            try:
-                d = list(args)
-                for div_i, div_item in enumerate(d):
-                    if div_i == len(d) - 1:
-                        break
-                    d[0] = d[0] / d[div_i + 1]
-                return d[0]
-            except ZeroDivisionError:
-                print("You can't divide by zero")
-                break
-        elif math_operator == "-":
-            s = list(args)
-            for subs_i, subs_item in enumerate(s):
-                if subs_i == len(s) - 1:
-                    break
-                s[0] = s[0] - s[subs_i + 1]
-            return s[0]
-        else:
-            print("\n Wrong format")
-    return x
+
+# Multiplier
+def multiplier(lst: list):
+    res = 1
+    for item in lst:
+        res *= item
+    return res
+
+# Divider
+def divider(lst: list):
+    a = lst[0]
+    for ind, item in enumerate(lst):
+        if ind+1 ==len(lst):
+            break
+        if 0 in lst[1:]:
+            print("You can't divide by zero")
+            quit()
+        a = a/lst[ind + 1]
+    return a
+
+# Power one by one
+def power(lst: list):
+     a = lst[0]
+     for ind, item in enumerate(lst):
+        if ind+1 ==len(lst):
+            break
+        if 0 in lst[1:]:
+            print("You can't divide by zero")
+            quit()
+        a = a**lst[ind + 1]
+     return a
+   
+# Main function
+def list_calc(operator:str(), lst:list) -> int():
+    if operator == "+":
+        return print(adder(lst))
+    elif operator == "-":
+        return print(subtracter(lst))
+    elif operator == "*":
+        return print(multiplier(lst))
+    elif operator == "/":
+        return print(divider(lst))
+    elif operator == "^":
+        return print(power(lst))
+    else:
+        print("Unexpected math operator")
 
 
-print(make_operation('*', 16, 2, 4, 1))
+list_calc("^", [2, 2, 3])
+
 
 
 
