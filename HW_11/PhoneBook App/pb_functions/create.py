@@ -1,5 +1,7 @@
 import json
 
+PHONEBOOK_FILE = "HW_11\PhoneBook App\phonebook.json" 
+
 
 def create_contact():
     # Phone number
@@ -13,7 +15,7 @@ def create_contact():
 
             try:
                 next_step = int(input("\n Do you want to continue?"
-                                      "\n Yes --> [1] No --> [2] Quit --> [1101]: "))
+                                      "\n Yes --> [1] No --> [2] Quit --> [0]: "))
             except ValueError:
                 print("\n Input Error"
                       "\n Use only given numbers to choose")
@@ -27,7 +29,7 @@ def create_contact():
                 break
             elif next_step == 2:
                 continue
-            elif next_step == 1101:
+            elif next_step == 0:
                 quit()
 
     # Name and Surname
@@ -40,7 +42,7 @@ def create_contact():
 
         try:
             next_step = int(input("\n Do you want to continue?"
-                                  "\n Yes --> [1] No --> [2] Quit --> [1101]: "))
+                                  "\n Yes --> [1] No --> [2] Quit --> [0]: "))
         except ValueError:
             print("\n Input Error"
                   "\n Use only given numbers to choose")
@@ -54,7 +56,7 @@ def create_contact():
             break
         elif next_step == 2:
             continue
-        elif next_step == 1101:
+        elif next_step == 0:
             quit()
 
     # Address
@@ -67,7 +69,7 @@ def create_contact():
 
         try:
             next_step = int(input("\n Do you want to continue?"
-                                  "\n Yes --> [1] No --> [2] Quit --> [1101]: "))
+                                  "\n Yes --> [1] No --> [2] Quit --> [0]: "))
         except ValueError:
             print("\n Input Error"
                   "\n Use only given numbers to choose")
@@ -81,7 +83,7 @@ def create_contact():
             break
         elif next_step == 2:
             continue
-        elif next_step == 1101:
+        elif next_step == 0:
             quit()
 
     new_cont = {
@@ -93,21 +95,11 @@ def create_contact():
         "Country": country
     }
 
-    while True:
-        val_lst = []
-        key_lst = []
-        for key, val in new_cont.items():
-            if len(val_lst) == len(new_cont):
-                break
-            val_lst.append(val)
-            key_lst.append(key)
-        print("\n Here is contact's info:\n")
-        i = 0
-        while i < len(val_lst):
-            print("", f"{key_lst[i]} -- {val_lst[i]}")
-            i += 1
-        break
 
+
+    for key, val in new_cont.items():
+        print("", f"{key} -- {val}")
+        
     while True:
         try:
             next_step = int(input("\n Do you want to SAVE this contact?"
@@ -123,13 +115,13 @@ def create_contact():
 
         if next_step == 1:
 
-            with open("HW_11\PhoneBook App\phonebook.json",
+            with open(PHONEBOOK_FILE,
                     "r") as opb:
                 old_book = json.load(opb)
 
             old_book.append(new_cont)
 
-            with open("HW_11\PhoneBook App\phonebook.json", "w") as npb:
+            with open(PHONEBOOK_FILE, "w") as npb:
                 json.dump(old_book, npb)
             quit()
         elif next_step == 2:

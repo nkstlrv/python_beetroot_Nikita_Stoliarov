@@ -1,12 +1,12 @@
 import json
 
+PHONEBOOK_FILE = "HW_11\PhoneBook App\phonebook.json" 
+
 
 def edit_contact():
-    with open(r"HW_11\PhoneBook App\phonebook.json", "r") as pb1:
+    with open(PHONEBOOK_FILE, "r") as pb1:
         phone_book1 = json.load(pb1)
     # Searchin contact by number
-    key_lst = []
-    val_lst = []
     contact_dict = {}
     i = 0
     while True:
@@ -23,16 +23,8 @@ def edit_contact():
             continue
         else:
             for key, val in contact_dict.items():
-                if len(val_lst) == len(contact_dict):
-                    break
-                val_lst.append(val)
-                key_lst.append(key)
-
-        print("\n Here is contact's info:\n")
-        while i < len(val_lst):
-            print("", f"{key_lst[i]} -- {val_lst[i]}")
-            i += 1
-        break
+                print("", f"{key} -- {val}")
+            break
 
     # Choosing which parameter to edit
     while True:
@@ -84,7 +76,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -118,7 +110,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -152,7 +144,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -186,7 +178,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -220,7 +212,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 
@@ -254,7 +246,7 @@ def edit_contact():
             phone_book1.append(new_dict)
 
             with open(
-                    r"HW_11\PhoneBook App\phonebook.json", "w") as npb:
+                    PHONEBOOK_FILE, "w") as npb:
                 json.dump(phone_book1, npb)
                 quit()
 

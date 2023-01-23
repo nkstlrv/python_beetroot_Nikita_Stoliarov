@@ -1,6 +1,7 @@
 import json
+PHONEBOOK_FILE = "HW_11\PhoneBook App\phonebook.json" 
 
-with open(r"HW_11\PhoneBook App\phonebook.json", "r") as pb:
+with open(PHONEBOOK_FILE, "r") as pb:
     phone_book = json.load(pb)
 
 
@@ -62,8 +63,6 @@ def search_fullname() -> str:
 
 # Search by Telephone number
 def search_number() -> str:
-    key_lst = []
-    val_lst = []
     contact_dict = {}
     i = 0
     while True:
@@ -80,17 +79,10 @@ def search_number() -> str:
             print("\n There is NO contact with this number")
             continue
         else:
+            print("\n Here is contact's info:\n")
             for key, val in contact_dict.items():
-                if len(val_lst) == len(contact_dict):
-                    break
-                val_lst.append(val)
-                key_lst.append(key)
-
-        print("\n Here is contact's info:\n")
-        while i < len(val_lst):
-            print("", f"{key_lst[i]} -- {val_lst[i]}")
-            i += 1
-        break
+                print("", f"{key} -- {val}")
+            break
 
 
 # Search by City:

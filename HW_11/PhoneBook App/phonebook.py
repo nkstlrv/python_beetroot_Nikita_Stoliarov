@@ -42,7 +42,7 @@ while True:
                           "\n - Create new contact --> [2]"
                           "\n - Edit contact's info --> [3]"
                           "\n - Delete contact --> [4]"
-                          "\n - Quit the program --> [1101]"
+                          "\n - Quit the program --> [0]"
                           "\n ENTER your answer: "))
 
     try:
@@ -68,7 +68,7 @@ while True:
                                     "\n - By CITY --> [5]"
                                     "\n - By STATE --> [6]"
                                     "\n - By COUNTRY --> [7]"
-                                    "\n - Quit --> [1101]"
+                                    "\n - Quit --> [0]"
                                     "\n ENTER your answer: "))
             try:
                 search_mode
@@ -127,7 +127,7 @@ while True:
         quit()
 
     # Quit the program
-    elif prog_mode == 1101:
+    elif prog_mode == 0:
         print("\n Bye! Hope to see you soon")
         quit()
 
