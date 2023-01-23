@@ -7,7 +7,7 @@ def oops():
 
     # Try to enter index out of range to call an IndexError
     usr_input_2 = int(input("\n Now, ENTER an index of an item in a list to see what it is: "))
-    return print(usr_list[usr_input_2])
+    print(usr_list[usr_input_2])
 
 
 def try_oops():

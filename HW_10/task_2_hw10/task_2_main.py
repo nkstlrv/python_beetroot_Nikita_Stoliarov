@@ -11,11 +11,6 @@ def task_2_func():
     while True:
         try:
             a = float(input("\n Enter FIRST number: "))
-        except ValueError:
-            print("\n ERROR:"
-                  "\n Use numbers only")
-            continue
-        try:
             b = float(input("\n Now, enter the SECOND one: "))
         except ValueError:
             print("\n ERROR:"

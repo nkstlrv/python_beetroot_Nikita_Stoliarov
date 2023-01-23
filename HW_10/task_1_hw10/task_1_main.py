@@ -4,11 +4,11 @@
 # Then write another function that calls oops inside a try/except statement to catch the error.
 # What happens if you change oops to raise KeyError instead of IndexError?
 
-from my_functios import oops_functios
+from my_functios.oops_functios import try_oops
 
 # oops_functios.oops()
 
-oops_functios.try_oops()
+try_oops()
 
 print("\n So if we just replace IndexError with KeyError inside except: part,"
       "\n exception won't work because the error that occurs in oops function is IndexError,"
