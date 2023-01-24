@@ -6,12 +6,14 @@ from functools import wraps
 
 def stop_words(words: list):
     @wraps(words)
-    def wrapper(func):
-        a = func(*args, **kwargs)
-        a = a.split()
-        a = ['*' if item in words else item for item in a]
-        return " ".join(a)
-    return wrapper
+    def function(func):
+        def arguments(*args, **kwargs):
+            a = func(*args, **kwargs)
+            a = a.split()
+            a = ['*' if item in words else item for item in a]
+            return " ".join(a)
+        return arguments
+    return function
 
 
 @stop_words(['Coca-Cola', 'Porsche'])
