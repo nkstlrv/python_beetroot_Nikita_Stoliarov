@@ -8,7 +8,7 @@ class TVController:
         self.channels = channels
 
     def first_channel(self):
-        TVController.current_channel = 0
+        self.current_channel = 0
         return f"First channel --> {self.channels[0]}"
 
     def last_channel(self):

@@ -13,7 +13,7 @@ class Dog:
             raise ValueError("Bro, age can not be negative! :)")
         
     def human_age(self):
-        human_age = self.dog_age * Dog.age_factor
+        human_age = self.dog_age * self.age_factor
         print(f"{self.name}'s age, converted to human's equals {human_age}")
 
 
