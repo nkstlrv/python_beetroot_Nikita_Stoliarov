@@ -1,20 +1,25 @@
-class InvalidCountry(Exception):
 
-    available_countries = ["Ukraine", "USA", "UK", "Sweeden", "New Zeland", "Japan"]
+# Default Custom exception class that only raises Exception
+class CustomException(Exception):
 
-    def __init__(self, country, message="Unfortunately, there is no access from your country :("):
-        self.country = country
+    def __init__(self, message = "Custom exception occured "):
         self.message = message
-        super().__init__(self.message)
 
+    def raise_exception(self):
+        raise CustomException(self.message)
+    
 
-country = input("Enter country to check access: ")
-if country not in InvalidCountry.available_countries:
-    error_message = str(InvalidCountry(country))
+# New class that inherits previos and logs Exception message to txt file
+class PrintCustomException(CustomException):
 
-    with open ("Module 2\HW_16_Inheritance\logs.txt", "a") as f:
-        f.write(error_message + "\n\n")
+    def __init__(self, message="Custom exception occured and printed "):
+        super().__init__(message)
 
-    raise InvalidCountry(country)
-else:
-    print("Congratulations. You've got access! :)")
+    def raise_exception(self):
+        print_message = str(CustomException(self.message))
+        with open ("Module 2\HW_16_Inheritance\log.txt", "a") as f:
+            f.write(print_message + "\n\n")
+        return super().raise_exception()
+    
+ex = PrintCustomException()
+ex.raise_exception()

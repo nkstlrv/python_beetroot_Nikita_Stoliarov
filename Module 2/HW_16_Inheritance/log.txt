@@ -1,0 +1,6 @@
+Custom exception occured and printed 
+
+Custom exception occured and printed 
+
+Custom exception occured and printed 
+
