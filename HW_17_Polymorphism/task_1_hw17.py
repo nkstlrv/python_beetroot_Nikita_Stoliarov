@@ -1,4 +1,3 @@
-
 class Animal:
     def talk(self):
         pass
@@ -6,7 +5,7 @@ class Animal:
 
 class Dog(Animal):
     def talk(self):
-        return f"{__class__.__name__} says woof, woof" 
+        return f"{__class__.__name__} says woof, woof"
 
 
 class Cat(Animal):
@@ -14,9 +13,9 @@ class Cat(Animal):
         return f"{__class__.__name__} says meow"
 
 
-
 c_1 = Dog().talk()
 c_2 = Cat().talk()
+
 
 def talking_func(animal):
     if animal == "Cat":
@@ -27,6 +26,6 @@ def talking_func(animal):
         return c_2, c_1
     else:
         return "There is no such option"
-    
-print(talking_func("Cat, Dog"))
 
+
+print(talking_func("Cat, Dog"))
