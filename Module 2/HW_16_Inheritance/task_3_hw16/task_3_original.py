@@ -1,4 +1,3 @@
-
 # Prices are in thousands USD --> 100 = $100,000
 class Product:
 
@@ -14,15 +13,14 @@ class Product:
 
 
 class ProductStore(Product):
-
     discount = 5
     income = 0
     market = [
         {
-        "Product": "Test",
-        "Price": 0,
-        "Amount": 0
-    }
+            "Product": "Test",
+            "Price": 0,
+            "Amount": 0
+        }
     ]
 
     def __init__(self, type, name, price, amount):
@@ -32,31 +30,28 @@ class ProductStore(Product):
 
         ProductStore.market.append(
             {
-            "Product": self.name,
-            "Price": self.price, 
-            "Amount": self.amount
+                "Product": self.name,
+                "Price": self.price,
+                "Amount": self.amount
             }
-            )
-    
+        )
+
     def amount_validator(self, amount):
         if amount < 0:
             raise ValueError("Amount can not be negative")
-        
-    
+
     def add_product(self, add_product, add_amount, add_price):
         ProductStore.market.append(
             {
-            "Product": add_product, 
-            "Price": add_price, 
-            "Amount": add_amount
+                "Product": add_product,
+                "Price": add_price,
+                "Amount": add_amount
             }
-            )
+        )
         return "Product added"
-
 
     def set_discount(self, discount):
         ProductStore.discount = discount
-
 
     def sell_product(self, sell_product, sell_amount):
         sell_list = []
@@ -65,21 +60,19 @@ class ProductStore(Product):
                 if sell_amount <= item["Amount"]:
                     sell_list.append(item)
                     item["Amount"] -= sell_amount
-                    ProductStore.income = item["Price"] * sell_amount - (item["Price"] * sell_amount * ProductStore.discount/100)
+                    ProductStore.income = item["Price"] * sell_amount - (
+                                item["Price"] * sell_amount * ProductStore.discount / 100)
                     break
                 else:
                     raise ValueError("There are no so many products in the market")
         if len(sell_list) == 0:
             raise ValueError("No such product in the store")
 
-
     def get_income(self):
         return f" Your store total income is --> {self.income}"
 
-
     def get_all_products(self):
         return f"Here are all market products --> {ProductStore.market}"
-    
 
     def get_product_info(self, product_name):
         find_lst = []
@@ -88,16 +81,12 @@ class ProductStore(Product):
                 find_lst.append(item)
                 break
         if len(find_lst) == 0:
-            return("There no this product in the stock :(")
+            return "There no this product in the stock :("
         else:
             name = find_lst[0]["Product"]
             amount = find_lst[0]["Amount"]
             info = f" Here is product's info:", f" Name --> {name}", f" Amount of items --> {amount}"
             return info
-
-        
-
-
 
 
 a = ProductStore("planes", "Cessna", 100, 10)
@@ -111,6 +100,3 @@ print(a.income)
 print(a.get_all_products())
 
 print(a.get_product_info("Boeing"))
-
-
-
