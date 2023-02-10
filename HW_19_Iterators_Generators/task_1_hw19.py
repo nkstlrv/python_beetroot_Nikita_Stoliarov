@@ -1,5 +1,3 @@
-
-
 def with_index(iterable, start=0):
     start_index = start
     iter_object = iter(iterable)
