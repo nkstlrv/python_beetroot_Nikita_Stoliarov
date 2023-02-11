@@ -1,5 +1,4 @@
 class MyIterable:
-
     def __init__(self, my_object):
         self._my_object = my_object
         self.iterable_object = iter(self.get_item)
