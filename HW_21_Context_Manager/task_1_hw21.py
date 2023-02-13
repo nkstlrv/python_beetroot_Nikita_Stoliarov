@@ -24,7 +24,7 @@ with FileManager("task_1.txt", "a") as f:
 with FileManager("task_1.txt", "a") as f:
     f.write(f"The number of class instances is --> {FileManager.instance_num}\n\n")
 
-print(f.closed)
+print(f"File is closed --> {f.closed}")
 
 
 

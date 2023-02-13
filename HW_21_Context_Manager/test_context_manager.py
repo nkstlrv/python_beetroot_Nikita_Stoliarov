@@ -1,19 +1,9 @@
-
-class MyCM:
-
-    def __init__(self, filename, text, mode):
-        self.filename = filename
-        self.text = text
-        self.mode = mode
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        with open(self.filename, self.mode) as f:
-            f.write(self.text)
+from task_1_hw21 import FileManager
 
 
-with MyCM("my_file.txt", "w") as f:
-
-    print("Writing to file")
+def test_writing_to_file():
+    with FileManager("task_2.txt", "w") as f:
+        f.write(f"The number of class instances is --> {FileManager.instance_num}\n\n")
+    with open("task_2.txt", "r") as f:
+        file = f.read()
+        assert file == "The number of class instances is --> 4\n\n"
