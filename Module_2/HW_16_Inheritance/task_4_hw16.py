@@ -17,7 +17,7 @@ class PrintCustomException(CustomException):
 
     def raise_exception(self):
         print_message = str(CustomException(self.message))
-        with open ("Module 2\HW_16_Inheritance\log.txt", "a") as f:
+        with open ("Module_2\HW_16_Inheritance\log.txt", "a") as f:
             f.write(print_message + "\n\n")
         return super().raise_exception()
     
