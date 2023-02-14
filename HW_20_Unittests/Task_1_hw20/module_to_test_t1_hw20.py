@@ -56,7 +56,6 @@ class TypeDecorators:
         return wrapper
 
 
-
 # Converting to INT
 @TypeDecorators.to_int
 def to_integer(value):
