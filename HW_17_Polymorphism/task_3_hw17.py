@@ -4,36 +4,53 @@ class Fraction:
         self.x = x
         self.y = y
 
+    def __str__(self):
+        return f"{__class__.__name__}({self.x}, {self.y})"
+
     def __add__(self, other):
-        a = self.x + other.x
-        b = self.y + other.y
-        return a, b
+        if self.y == 0 or other.y == 0:
+            raise ZeroDivisionError("Denominator can't be equal to zero")
+        else:
+            a = self.x * other.y + other.x * self.y
+            b = self.y * other.y
+            return Fraction(a, b)
 
     def __sub__(self, other):
-        a = self.x - other.x
-        b = self.y - other.y
-        return a, b
+        if self.y == 0 or other.y == 0:
+            raise ZeroDivisionError("Denominator can't be equal to zero")
+        else:
+            a = self.x * other.y - other.x * self.y
+            b = self.y * other.y
+            return Fraction(a, b)
 
     def __mul__(self, other):
-        a = self.x * other.x
-        b = self.y * other.y
-        return a, b
+        if self.y == 0 or other.y == 0:
+            raise ZeroDivisionError("Denominator can't be equal to zero")
+        else:
+            a = self.x * other.x
+            b = self.y * other.y
+            return Fraction(a, b)
 
     def __truediv__(self, other):
-        try:
-            a = self.x / other.x
-            b = self.y / other.y
-        except ZeroDivisionError:
-            return "You can't divide by zero"
-        return a, b
+        if other.x == 0:
+            a = self.x
+            b = self.y
+            return Fraction(a, b)
+        elif self.y == 0 or other.y == 0:
+            raise ZeroDivisionError("Denominator can't be equal to zero")
+        else:
+            a = self.x * other.y
+            b = self.y * other.x
+            return Fraction(a, b)
 
 
 if __name__ == "__main__":
 
-    x = Fraction(4, 2)
-    y = Fraction(3, 0)
+    x = Fraction(1, 3)
+    y = Fraction(2, 5)
 
     print(x + y)
     print(x - y)
     print(x * y)
     print(x / y)
+
