@@ -1,7 +1,7 @@
 # Author class
 class Author:
 
-    def __init__(self, a_name, a_country, a_birthday, a_books: [str]):
+    def __init__(self, a_name, a_country, a_birthday, a_books):
         self.a_name = a_name
         self.a_country = a_country
         self.a_birthday = a_birthday
@@ -12,6 +12,10 @@ class Author:
 
     def __repr__(self):
         return f"{self.a_name}"
+    
+    def __eq__(self, other):
+        return self.a_name == other.a_name
+    
 
 
 a_1 = Author("Taras Shevchenko", "Ukraine", "09.03.1814", ["Kobzar"])
@@ -40,6 +44,9 @@ class Book:
 
     def __repr__(self):
         return f"{self.b_name}"
+    
+    def __eq__(self, other):
+        return self.b_name == other.b_name
 
 
 b_1 = Book("Kobzar", 1840, a_1)
@@ -64,11 +71,11 @@ class Library:
         new_author = Author(author_name, country, birthday, [book_name])
         new_book = Book(book_name, year, new_author)
         for book in self.l_books:
-            if book.b_name == book_name:
+            if book == new_book:
                 print("This book is already in the library")
                 break
         for author in self.l_authors:
-            if book.b_name != book_name and author.a_name == author_name:
+            if book != new_book and author == new_author:
                 author.a_books.append(new_book)
                 self.l_books.append(new_book)
                 break
@@ -115,3 +122,4 @@ print(lib_1.group_by_year(1994))
 
 # Returns amount of all existing instances of the Book class
 print(Book.amount_of_books())
+
