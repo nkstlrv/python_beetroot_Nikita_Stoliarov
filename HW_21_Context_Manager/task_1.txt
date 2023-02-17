@@ -1,6 +1,0 @@
-The number of class instances is --> 1
-
-The number of class instances is --> 2
-
-The number of class instances is --> 3
-
