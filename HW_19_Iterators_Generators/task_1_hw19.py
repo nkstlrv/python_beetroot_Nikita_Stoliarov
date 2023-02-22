@@ -3,7 +3,7 @@ def with_index(iterable, start=0):
     iter_object = iter(iterable)
     while True:
         try:
-            yield f"{start_index} {next(iter_object)}"
+            yield start_index, next(iter_object)
             start_index += 1
         except StopIteration:
             break
