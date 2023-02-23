@@ -65,15 +65,15 @@ def test_slice_out_of_range(create_llsit_with_items):
     assert "Ending is out of range" == str(e.value)
 
 
-def test_slice_start_index_after_end(create_llsit_with_items):
+def test_slice_start_index_after_or_equal_to_end(create_llsit_with_items):
     with pytest.raises(ValueError) as e:
         create_llsit_with_items.slice(2, 0)
+    assert "Impossible slicing" == str(e.value)
+    with pytest.raises(ValueError) as e:
+        create_llsit_with_items.slice(2, 2)
     assert "Impossible slicing" == str(e.value)
 
 
 def test_slice(create_llsit_with_items):
-    assert create_llsit_with_items.slice(0, 2) == [3, 2]
-    assert create_llsit_with_items.slice(1, 2) == [2]
-    assert create_llsit_with_items.slice(1, 1) == []
-    assert create_llsit_with_items.slice(0, 0) == []
-    assert create_llsit_with_items.slice(1, 3) == [2, 1]
+    assert repr(create_llsit_with_items.slice(0, 2)) == "Linked list: 3 -> 2 -> "
+    assert repr(create_llsit_with_items.slice(1, 2)) == "Linked list: 2 -> "
