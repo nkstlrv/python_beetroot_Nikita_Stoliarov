@@ -32,4 +32,3 @@ volumes:
   pgadmin:
 
 
-#docker exec -i beetroot_db pg_restore -U postgres -v -d dvdrental dvdrental.tar
