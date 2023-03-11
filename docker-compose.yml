@@ -1,5 +1,7 @@
 version: '3.1'
+
 services:
+
   db:
     image: postgres
     restart: always
@@ -9,6 +11,7 @@ services:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4
@@ -22,7 +25,11 @@ services:
       - pgadmin:/var/lib/pgadmin
     depends_on:
       - db
+
+
 volumes:
   pgdata:
   pgadmin:
+
+
 #docker exec -i beetroot_db pg_restore -U postgres -v -d dvdrental dvdrental.tar
