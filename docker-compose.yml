@@ -32,3 +32,4 @@ volumes:
   pgadmin:
 
 
+#docker exec -i "python_beetroot_nikita_stoliarov-db-1 pg_restore -U postgres -v -d dvdrental" < dvdrental.tar
